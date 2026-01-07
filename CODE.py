@@ -9,6 +9,8 @@ conn = mysql.connector.connect(
 )
 cur=conn.cursor()
 
+#Librarian Functions
+
 def librarian_register():
     u = input("Enter username :")
     p = input("Enter password :")
@@ -21,3 +23,4 @@ def librarian_login():
     p= input("Enter the password :")
     cur.execute("select * from librarian where username=%s and password=%s", (u,p))
     return cur.fetchone() is not None
+
