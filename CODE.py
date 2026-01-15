@@ -24,3 +24,5 @@ def librarian_login():
     cur.execute("select * from librarian where username=%s and password=%s", (u,p))
     return cur.fetchone() is not None
 
+
+# Book Functions
