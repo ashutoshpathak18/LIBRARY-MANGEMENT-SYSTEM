@@ -27,3 +27,4 @@ def librarian_login():
 
 # Book Functions
 def add_book():
+    name= input("Enter book name :")
