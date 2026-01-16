@@ -26,3 +26,4 @@ def librarian_login():
 
 
 # Book Functions
+def add_book():
