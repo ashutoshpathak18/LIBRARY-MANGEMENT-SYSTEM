@@ -26,5 +26,13 @@ def librarian_login():
 
 
 # Book Functions
+
 def add_book():
     name= input("Enter book name :")
+    author= input("Enter author name :")
+    quantity= int(input("Enter quantity :"))
+    cur.execute("insert into books (name,author,quantity) values (%s,%s,%s)", (name,author,quantity))
+    conn.commit()
+
+    print("Book added successfully....!")
+
