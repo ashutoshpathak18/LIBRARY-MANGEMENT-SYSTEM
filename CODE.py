@@ -70,5 +70,11 @@ def view_members():
     cur.execute("select * from members")
     members = cur.fetchall()
     for member in members:
-        print(f"ID: {member[0]}, ")
+        print(f"ID: {member[0]}, Name: {member[1]}, Email: {member[2]}")
+
+def delete_member():
+    member_id= int(input("Enter member ID to delete :"))
+    cur.execute("delete from members where id=%s", (member_id,))
+    conn.commit()
+    print("Member deleted successfully...!")
 
