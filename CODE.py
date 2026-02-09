@@ -37,5 +37,38 @@ def add_book():
     print("Book added successfully....!")
 
 def view_books():
-    
+    cur.execute("select * from books")
+    books= cur.fetchall()
+    for book in books:
+        print(f"ID: {book[0]}, Name: {book[1]}, Author: {book[2]}, Quantity: {book[3]}")
+
+def update_book():
+    book_id= int(input("Enter book ID to Update :"))
+    name= input("Enter new book name :")
+    author= input("Enter the new author name :")
+    quantity= int(input("Enter new quantity :"))
+    cur.execute("update books set name=%s, author=%s, quantity=%s, where id=%s", (name,author,quantity,book_id))
+    conn.commit()
+    print("Book update successfully....!")
+
+def delete_book():
+    book_id= int(input("Enter book ID to delete :"))
+    cur.execute("delete from books where id=%s", (book_id,))
+    conn.commit()
+    print("Book deleted successfully.....!")
+
+# Member Functions
+
+def member_register():
+    name= input("Enter member name :")
+    email= input("Enter member Email :")
+    cur.execute("insert into members (name,email) values (%s,%s)", (name,email))
+    conn.commit()
+    print("Member registered succcessfully...!")
+
+def view_members():
+    cur.execute("select * from members")
+    members = cur.fetchall()
+    for member in members:
+        print(f"ID: {member[0]}, ")
 
