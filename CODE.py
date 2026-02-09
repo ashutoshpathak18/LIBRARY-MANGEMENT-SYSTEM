@@ -5,7 +5,7 @@ conn = mysql.connector.connect(
     host="localhost",
     user="root",
     password="root",
-    database="librarys"
+    database="library"
 )
 cur=conn.cursor()
 
@@ -78,3 +78,10 @@ def delete_member():
     conn.commit()
     print("Member deleted successfully...!")
 
+# Borrowing Functions
+
+def borrow_book():
+    member_id= int(input("Enter member ID :"))
+    book_id= int(input("Enter book ID :"))
+    borrow_date= date.today()
+    cur.execute("insert into borrowings")
