@@ -110,47 +110,57 @@ def close_connection():
     database="library"
     print("Connection closed....")
 
-if __name__ == "__main__":
+while(True):
+    print("Welcome to the Library Management System\n")
+    print("Press 1 for Librarian Registration")
+    print("Press 2 for Librarian Login")
+    print("Press 3 for Student Registration")
+    print("Print 4 for Student Login")
+    print("Press 5 to Exit")
+    choice= int(input())
 
-    librarian_register()
-    if librarian_login():
-        print("Librarian logged in successfully\n")
-        print("Press 1 to view book")
-        print("Press 2 to add books")
-        print("Press 3 to Update book")
-        print("Press 4 to Delete book")
-        print("Press 5 to Register member")
-        print("Press 6 to View members")
-        print("Press 7 to Delete member")
-        print("Press 8 to Borrow book")
-        print("Press 9 to Return book")
-        print("Press 10 to View borrowings")
-        print("Press 11 to Close connection")
-        choice= int(input())
-        if choice==1:
-            view_books()
-        elif choice==2:
-            add_book()
-        elif choice==3:
-            update_book()
-        elif choice==4:
-            delete_book()
-        elif choice==5:
-            member_register()
-        elif choice==6:
-            view_members()
-        elif choice==7:
-            delete_member()
-        elif choice==8:
-            borrow_book()
-        elif choice==9:
-            return_book()
-        elif choice==10:
-            view_borrowings()
-        elif choice==11:
-            close_connection()
+    choice= int(input())
+    if choice==1:
+        librarian_register()
+    elif choice==2:
+        if librarian_login():
+            print("Librarian Login Successful....!")
+            while(True):
+                print("Press 1 to View Book")
+                print("Press 2 to Add Books")
+                print("Press 3 to Update Book")
+                print("Press 4 to Delete Book")
+                print("Press 5 to View Students")
+                print("Press 6 to Add Student")
+                print("Press 7 to Delete Student")
+                print("Press 8 to View Borrowings")
+                print("Press 9 to Logout")
+                choice= int(input())
+                if choice==1:
+                    view_books()
+                elif choice==2:
+                    add_book()
+                elif choice==3:
+                    update_book()
+                elif choice==4:
+                    delete_book()
+                elif choice==5:
+                    view_members()
+                elif choice==6:
+                    member_register()
+                elif choice==7:
+                    delete_member()
+                elif choice==8:
+                    view_borrowings()
+                elif choice==9:
+                    break
+                else:
+                    print("Invalid Choice....!")
         else:
-            print("Invalid choice")
+            print("Invalid Username or Password...!")
     
-
-
+    elif choice==3:
+        member_register()
+        
+    elif choice==4:
+        if member_
